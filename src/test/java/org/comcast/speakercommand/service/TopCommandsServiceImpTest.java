@@ -11,9 +11,9 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TopCommandsServiceTest {
+public class TopCommandsServiceImpTest {
     @InjectMocks
-    private TopCommandsService topCommandsService;
+    private TopCommandsServiceImp topCommandsServiceImp;
 
     @Test
     public void getTopCommands(){
@@ -43,7 +43,7 @@ public class TopCommandsServiceTest {
         statesTopCommands.put("topCommandsNationally", Arrays.asList("cnn","stranger things","show me movies"));
 
 
-        Map actualStatesTopCommands = topCommandsService.getTopCommands((long) 12345, stateCommandsRequest);
+        Map actualStatesTopCommands = topCommandsServiceImp.getTopCommands((long) 12345, stateCommandsRequest);
 
         assertEquals(statesTopCommands.get("topCommandsNationally"),actualStatesTopCommands.get("topCommandsNationally"));
         MostFrequentCommand actualMostFreqCommandAlabama = (MostFrequentCommand) actualStatesTopCommands.get("alabama");
